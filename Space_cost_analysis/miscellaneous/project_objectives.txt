@@ -1,0 +1,57 @@
+SPACE SYSTEMS CER PORTFOLIO — PROJECT OBJECTIVES & STEPS
+==========================================================
+
+
+1. DATA FOUNDATION
+------------------
+- Open each CSV and verify row counts match expectations (50, 840, 500, 50)
+- Sum subsystem dev costs per program, confirm they match development_cost in programs file
+- Sum subsystem prod costs per program, confirm they match production_cost
+- Sum yearly spend per program across all cost columns, confirm they match total_lcc_fy2020_musd
+- Write up a one-page data dictionary describing every table, key columns, units, and how tables join
+
+
+2. CER REGRESSION MODELS
+-------------------------
+- Plot development cost vs. dry mass on a log-log scale to visually confirm the power-law relationship
+- Fit a simple log-log OLS regression: log(dev_cost) = a + b*log(mass)
+- Expand to a multivariate model adding log(power) and log(design_life)
+- Check residuals, R², and prediction intervals
+- Repeat the regression segmented by mission type (GEO vs LEO, science vs comms)
+- Document your CER equations in the form: Cost = C * Mass^a * Power^b * Life^c
+
+
+3. LIFECYCLE COST ANALYSIS
+---------------------------
+- For each program, compute cumulative spend year by year across all cost categories
+- Plot individual S-curves for a representative sample (one per mission type)
+- Plot an aggregate S-curve across all 50 programs
+- Calculate what percentage of total LCC is post-launch (ops + maintenance + disposal) — highlight this finding
+- Identify which mission types have the worst ops-to-development cost ratios
+
+
+4. WBS COST BREAKDOWN
+----------------------
+- Calculate each subsystem's share of total development cost per program
+- Average those shares by mission type and orbit class
+- Identify the top three cost drivers for each mission type
+- Flag any subsystems where cost share varies significantly across programs — those are worth explaining
+- Create a stacked bar or treemap showing WBS cost distribution
+
+
+5. ESTIMATING TOOL
+-------------------
+- Use your regression coefficients from Objective 2 to build the estimating formula
+- Build a Python script (or notebook) where a user can input mass, power, orbit, and design life
+- Output a point estimate plus a low/high confidence range based on your regression prediction interval
+- Add a lookup for orbit-class ops and maintenance cost so it outputs full LCC, not just development cost
+- Test it against 3-4 known programs in your dataset to show accuracy
+
+
+6. PRESENTATION LAYER
+----------------------
+- Write a one-page methodology summary explaining your CER approach and key assumptions
+- Summarize the three most interesting findings from your analysis
+- Create 4-5 charts: S-curve, CER scatter with fit line, WBS breakdown, ops vs dev cost comparison
+- Frame everything as "here is the question, here is the analysis, here is what I'd tell leadership"
+- Package everything into a clean PDF or notebook you can walk someone through in 10 minutes
