@@ -18,6 +18,12 @@ The analysis processes a comprehensive dataset (`complete_satellite_costs.xlsx`)
 * **Log-Log Transformations:** Applied to stabilize variance and satisfy OLS regression assumptions, confirming a power-law relationship ($Cost = C \cdot Mass^a \cdot Power^b \cdot Life^c$).
 * **Segmented Regression:** Separate models are generated for different mission types (e.g., GEO vs. LEO) to increase predictive accuracy.
 
+### 3. Parameter Uncertainty and Analysis
+* CER models report parameter standard errors and statistical significance measures to quantify uncertainty in estimated cost-driver relationships.
+* Because models are fit in log–log form, coefficients represent cost elasticities. For example, the dry-mass coefficient indicates the expected percentage change in development cost resulting from proportional changes in spacecraft mass.
+* Including parameter uncertainty supports estimator transparency and allows evaluation of driver reliability beyond point predictions.
+* The goal of the model is not only predictive accuracy, but development of explainable cost relationships that can support early-phase program estimation and trade-space analysis.
+
 ## 🛠️ Technical Stack
 * **Language:** Python 3.x
 * **Libraries:** * Data Manipulation: `pandas`, `numpy`
