@@ -18,14 +18,10 @@ The analysis processes a comprehensive dataset (`complete_satellite_costs.xlsx`)
 * **Log-Log Transformations:** Applied to stabilize variance and satisfy OLS regression assumptions, confirming a power-law relationship ($Cost = C \cdot Mass^a \cdot Power^b \cdot Life^c$).
 * **Segmented Regression:** Separate models are generated for different mission types (e.g., GEO vs. LEO) to increase predictive accuracy.
 
-### 3. Machine Learning Integration
-* **XGBoost Regressor:** Implements gradient boosting to capture non-linear dependencies that traditional OLS might overlook.
-* **Hyperparameter Tuning:** Employs `GridSearchCV` for model optimization.
-
 ## 🛠️ Technical Stack
 * **Language:** Python 3.x
 * **Libraries:** * Data Manipulation: `pandas`, `numpy`
-    * Modeling: `scikit-learn`, `statsmodels`, `xgboost`
+    * Modeling: `statsmodels`
     * Visualization: `matplotlib`
 
 ## 📈 Key Findings
